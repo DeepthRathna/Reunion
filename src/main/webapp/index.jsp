@@ -46,7 +46,7 @@ body {
 	<div class="container">
 		<div class="jumbotron">
 			<div>
-				<h1>Welcome to Online Student Enrollment!</h1>
+				<h1>Welcome to SeniorCitizen Enrollment!</h1>
 				<p>To get started, you need to enter your details to enroll with
 					us. Or login to access your details, if you are already enrolled.</p>
 			</div>

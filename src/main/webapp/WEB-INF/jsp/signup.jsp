@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Student Enrollment Signup</title>
+<title>Senior Citizen Enrollment Signup</title>
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet" />
 <link href="datepicker/css/datepicker.css" rel="stylesheet" />
 <link href="assets/css/bootstrap-united.css" rel="stylesheet" />
@@ -87,7 +87,7 @@
 	<div class="container">
 		<div class="jumbotron">
 			<div>
-				<h1>Welcome to Online Student Enrollment Signup</h1>
+				<h1>Welcome to Online SeniorCitizen Enrollment Signup</h1>
 				<p>Its absolutely quick!</p>
 			</div>
 		</div>
@@ -107,7 +107,7 @@
 						<form:form id="myForm" method="post"
 							class="bs-example form-horizontal" commandName="seniorCitizen">
 							<fieldset>
-								<legend>Student Enrollment Signup Form</legend>
+								<legend>SeniorCitizen Enrollment Signup Form</legend>
 
 								<div class="form-group">
 									<label for="userNameInput" class="col-lg-3 control-label">User
@@ -151,8 +151,9 @@
 								<div class="form-group">
 									<label for="dateOfBirthInput" class="col-lg-3 control-label">Date
 										of Birth</label>
-									<div class="date form_date col-lg-9" data-date-format="mm/dd/yyyy" data-date-viewmode="years">
-										<form:input type="text" class="form-control"											
+									<div class="date form_date col-lg-9"
+										data-date-format="mm/dd/yyyy" data-date-viewmode="years">
+										<form:input type="text" class="form-control"
 											path="dateOfBirth" id="dateOfBirthInput"
 											placeholder="Date of Birth" />
 										<form:errors path="dateOfBirth" cssClass="error" />
@@ -165,8 +166,26 @@
 									<div class="col-lg-9">
 										<form:input type="text" class="form-control"
 											path="emailAddress" id="emailAddressInput"
-											placeholder="Email Address" />
+											placeholder="emailAddress" />
 										<form:errors path="emailAddress" cssClass="error" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="PhoneNumberInput" class="col-lg-3 control-label">PhoneNumber</label>
+									<div class="PhoneNumber col-lg-9"">
+										<form:input type="text" class="form-control"
+											path="PhoneNumber" id="PhoneNumberInput"
+											placeholder="Phonenumber" />
+										<form:errors path="PhoneNumber" cssClass="error" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="AddressInput" class="col-lg-3 control-label">Address</label>
+									<div class="PhoneNumber col-lg-9"">
+										<form:input type="text" class="form-control" path="Address"
+											id="AddressInput" placeholder="Address" />
+										<form:errors path="Address" cssClass="error" />
+
 									</div>
 								</div>
 
@@ -175,7 +194,7 @@
 
 									<button class="btn btn-primary" data-toggle="modal"
 										data-target="#themodal">Submit</button>
-									<div id="themodal" class="modal fade" data-backdrop="static">									
+									<div id="themodal" class="modal fade" data-backdrop="static">
 										<div class="modal-dialog">
 											<div class="modal-content">
 												<div class="modal-header">
@@ -218,9 +237,9 @@
 	<script type="text/javascript">
 		$(function() {
 			var yesButton = $("#yesbutton");
-			var progress = $("#doitprogress");		
-			
-			yesButton.click(function() {		
+			var progress = $("#doitprogress");
+
+			yesButton.click(function() {
 				yesButton.button("loading");
 
 				var counter = 0;
@@ -233,10 +252,10 @@
 						setTimeout(countDown, 100);
 					}
 				};
-				
+
 				setTimeout(countDown, 100);
 			});
-			
+
 		});
 	</script>
 

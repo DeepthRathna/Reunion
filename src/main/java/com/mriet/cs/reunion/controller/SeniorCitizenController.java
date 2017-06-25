@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.mriet.cs.reunion.model.SeniorCitizen;
 import com.mriet.cs.reunion.model.SeniorCitizenLogin;
@@ -38,7 +39,7 @@ public class SeniorCitizenController {
 			return "signup";
 		} else {
 			seniorCitizenService.save(seniorCitizen);
-			model.addAttribute("message", "Saved student details");
+			model.addAttribute("message", "Saved senior citizen details");
 			return "redirect:login.html";
 		}
 	}
@@ -51,15 +52,24 @@ public class SeniorCitizenController {
 	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
-	public String login(@Valid @ModelAttribute("seniorCitizenLogin") SeniorCitizenLogin seniorCitizenLogin, BindingResult result) {
+	public ModelAndView  login(@Valid @ModelAttribute("seniorCitizenLogin") SeniorCitizenLogin seniorCitizenLogin, BindingResult result, ModelAndView mav) {
 		if (result.hasErrors()) {
-			return "login";
+			mav.setViewName("login");
+			return mav;
 		} else {
 			boolean found = seniorCitizenService.findByLogin(seniorCitizenLogin.getUserName(), seniorCitizenLogin.getPassword());
-			if (found) {				
-				return "success";
-			} else {				
-				return "failure";
+			if (found) {
+				if(seniorCitizenLogin.getUserName().equals("admin")) {
+					mav.setViewName("admin");
+					mav.addObject("AllEnquiries", seniorCitizenService.findAllEnquiries());
+					return mav;
+				}
+				mav.addObject("seniorCitizenLogin", seniorCitizenLogin);
+				mav.setViewName("success");
+				return mav;
+			} else {	
+				mav.setViewName("failure");
+				return mav;
 			}
 		}
 		

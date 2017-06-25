@@ -39,11 +39,17 @@ public class SeniorCitizen {
 	@NotEmpty
 	@Email
 	private String emailAddress;
-	
-	@NotNull
+ 
+    @NotNull
 	@Past
 	@DateTimeFormat(pattern="MM/dd/yyyy")
 	private Date dateOfBirth;
+     
+     @NotNull
+     private String PhoneNumber;
+     
+ 	 @NotEmpty
+ 	private String Address;
 	
 	public Long getId() {
 		return id;
@@ -88,7 +94,7 @@ public class SeniorCitizen {
 	public String getEmailAddress() {
 		return emailAddress;
 	}
-
+	
 	public void setEmailAddress(String emailAddress) {
 		this.emailAddress = emailAddress;
 	}
@@ -100,4 +106,18 @@ public class SeniorCitizen {
 	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}	
+	public String  getPhoneNumber() {
+		return PhoneNumber;
+	}
+	public void setPhoneNumber(String PhoneNumber) {
+		this.PhoneNumber = PhoneNumber;
+	}
+	public String getAddress() {
+		return Address;
+	}
+	public void setAddress(String Address) {
+		this.Address = Address;
+	}
 }
+
+	
