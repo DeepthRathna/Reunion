@@ -44,4 +44,12 @@ public class SeniorCitizenServiceImpl implements SeniorCitizenService {
 		return seniorCitizenRepository.findAll();
 	}
 
+	public SeniorCitizen findById(Long id) {
+		return seniorCitizenRepository.findById(id);
+	}
+
+	public void registerAsMember(SeniorCitizen seniorCitizen) {
+		seniorCitizenRepository.registerAsMember(seniorCitizen.getId(), seniorCitizen.getRegisterReason(), seniorCitizen.getRegisteredDate());
+	}
+
 }

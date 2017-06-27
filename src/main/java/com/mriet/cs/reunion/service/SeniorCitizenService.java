@@ -9,4 +9,6 @@ public interface SeniorCitizenService {
 	boolean findByLogin(String userName, String password);
 	boolean findByUserName(String userName);
 	List<SeniorCitizen> findAllEnquiries();
+	SeniorCitizen findById(Long id);
+	void registerAsMember(SeniorCitizen seniorCitizen);
 }

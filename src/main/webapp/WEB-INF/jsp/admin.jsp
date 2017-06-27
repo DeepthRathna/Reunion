@@ -48,11 +48,9 @@ th {
 		</div>
 
 		<div class="navbar-collapse collapse navbar-responsive-collapse">
-			<form class="navbar-form navbar-right">
-				<input type="text" class="form-control" placeholder="Search">
-			</form>
+			
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="Reunion">Home</a></li>
+				<li><a href="/Reunion">Home</a></li>
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown">Explore<b class="caret"></b></a>
 					<ul class="dropdown-menu">
@@ -82,6 +80,8 @@ th {
 					<th>Mobile</th>
 					<th>Email</th>
 					<th>Address</th>
+					<th>status</th>
+					<th>Action</th>
 				</tr>
 				<c:forEach var = "enquiry" items="${AllEnquiries}">
 				<tr>
@@ -92,6 +92,9 @@ th {
 					<td>${enquiry.phoneNumber }</td>
 					<td>${enquiry.emailAddress }</td>
 					<td>${enquiry.address }</td>
+					<td>${enquiry.status }</td>
+					<td><c:if test = "${enquiry.status != 'approved'}"><a href="approve.html?id=${enquiry.id }">Approve</a></c:if>
+					</td>
 				</tr>
 				</c:forEach>
 			</table>
